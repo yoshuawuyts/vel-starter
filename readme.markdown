@@ -38,3 +38,15 @@ function render (state) {
   }
 }
 ```
+
+# contributing
+
+If you like what you see, but want to add something more, fork this repo and add
+your additional feature to the name of the fork. Try to be specific with the
+name of your fork, listing the technologies used plus what features the fork
+adds.
+
+# variations
+
+Check out the [list of forks](https://github.com/substack/virtual-dom-starter/network/members)
+to see how other people have customized this starter repo.
