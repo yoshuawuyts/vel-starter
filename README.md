@@ -1,7 +1,6 @@
 # vel-starter
 
 bare-bones [vel](https://npmjs.com/package/vel) starter
-using [main-loop](https://npmjs.com/package/main-loop)
 and [browserify](http://browserify.org)/[watchify](https://npmjs.com/package/watchify)
 with [npm run scripts](http://substack.net/task_automation_with_npm_run)
 
@@ -23,20 +22,20 @@ $ npm start
 # starter code
 
 ``` js
-var h = require('vel/h')
-var main = require('main-loop')
-var loop = main({ n: 0 }, render, require('vel'))
-document.querySelector('#content').appendChild(loop.target)
+const vel = require('vel')
 
-function render (state) {
+const el = vel(function (h, state) {
   return h('div', [
     h('h1', 'clicked ' + state.n + ' times'),
     h('button', { onclick: onclick }, 'click me!')
   ])
+
   function onclick () {
-    loop.update({ n: state.n + 1 })
+    el({ n: state.n + 1 })
   }
-}
+})
+
+document.querySelector('#content').appendChild(el({ n: 0 }))
 ```
 
 # contributing
@@ -48,5 +47,5 @@ adds.
 
 # variations
 
-Check out the [list of forks](https://github.com/substack/vel-starter/network/members)
+Check out the [list of forks](https://github.com/substack/virtual-dom-starter/network/members)
 to see how other people have customized this starter repo.
